@@ -184,6 +184,9 @@ def get_user_details(request, user_id):
     user = get_object_or_404(User, id=user_id)
     return render(request, 'user_details.html', {'user': user})
 
+def profile_view(request):
+    return render(request, 'user_details.html')
+
 @csrf_exempt    
 def delete_product(request, id):
     if(not request.user.is_superuser): return
